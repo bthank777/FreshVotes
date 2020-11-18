@@ -1,6 +1,7 @@
 package com.freshvotes.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,6 +15,11 @@ public class DashboardController {
 		return "index";   // Spring knows to prepend and append to build the full address /src/main/resources/index.html
 	}
 	
-	
+	@GetMapping("/dashboard")
+	public String dashboard() {
+		
+		return "dashboard";
+		
+	}
 	
 }
