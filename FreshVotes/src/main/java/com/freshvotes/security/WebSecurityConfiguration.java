@@ -48,17 +48,17 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 		// "/" means allow anyone permission
 		// "/index" means only the index file has permission
-		http.csrf().disable()
-					.authorizeRequests()
-						.antMatchers("/").permitAll()
-						.anyRequest().hasRole("USER").and()
-					.formLogin()
-						.loginPage("/login")
-						.permitAll()
-						.and()
-					.logout()
-						.logoutUrl("/logout")
-						.permitAll();
+		http.authorizeRequests()
+				.antMatchers("/").permitAll()
+				.anyRequest().hasRole("USER").and()
+			.formLogin()
+				.loginPage("/login")
+				.defaultSuccessUrl("/dashboard")
+				.permitAll()
+				.and()
+			.logout()
+				.logoutUrl("/logout")
+				.permitAll();
 	}
 	
 	
